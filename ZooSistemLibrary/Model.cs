@@ -1,0 +1,7 @@
+﻿namespace ZooSistemLibrary
+{
+    class Model
+    {
+
+    }
+}
