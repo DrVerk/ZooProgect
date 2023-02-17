@@ -1,20 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ZooSistemLibrary
 {
-    public class Presenter
+    public class Presenter : INotifyPropertyChanged
     {
         IView view;
         Model model;
 
-        public Presenter(IView view)
+        
+
+        public ObservableCollection<IAnimals> animals { get => model.Animals; set { model.Animals = value; OnPropertyChanged("animals"); } }
+        public Presenter()
         {
-            this.view = view;
-            model= new Model();
+            //this.view = view;
+            model = new Model();
         }
         public void SaveAnimals()
         {
@@ -26,11 +33,17 @@ namespace ZooSistemLibrary
         }
         public void AddAnimals()
         {
-
+            model.AddNewAnimals();
         }
         public void RemoveAnimals()
         {
 
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged([CallerMemberName] string prop = "")
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
     }
 }

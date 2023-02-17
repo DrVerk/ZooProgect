@@ -1,17 +1,16 @@
 ﻿namespace ZooSistemLibrary
 {
-    class AnimalsFactory
+    static class AnimalsFactory
     {
-        public IAnimals AnimalsCreate(string animtipe,
+        public static IAnimals AnimalsCreate(string animtipe,
             string name,
-            string age,
-            string tipeofanimal)
+            string age)
         {
             switch (animtipe)
             {
-                case "birds": return new Birds(name, age, tipeofanimal);
-                case "mammal": return new Mammal(name, age, tipeofanimal);
-                case "amphibians": return new Amphibians(name, age, tipeofanimal);
+                case "birds": return new Birds(name, age);
+                case "mammal": return new Mammal(name, age);
+                case "amphibians": return new Amphibians(name, age);
                 default: return new NullAnimalObject();
             }
         }

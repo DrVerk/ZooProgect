@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,13 +22,14 @@ namespace ZooProgect
     /// </summary>
     public partial class MainWindow : Window,IView
     {
-        public List<IAnimals> Animals { get; set; }
         Presenter presenter;
         public MainWindow()
         {
+           
             InitializeComponent();
-            presenter = new Presenter(this);
-
+            presenter = new Presenter();
+            presenter.animals.Add(new NullAnimalObject());
+            add.Click += (e, s) => presenter.AddAnimals();
         }
 
         

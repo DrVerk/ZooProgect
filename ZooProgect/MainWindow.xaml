@@ -5,8 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ZooProgect"
         mc:Ignorable="d"
+        xmlns:zoo="clr-namespace:ZooSistemLibrary;assembly=ZooSistemLibrary"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+    <Window.DataContext>
+        <zoo:Presenter/>
+    </Window.DataContext>
+    <Grid Background="#FF7696B9" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+
+            </Grid.RowDefinitions>
+            <Button x:Name="add" Content="Button" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch"/>
+        </Grid>
+        <ListView Background="#FF7696B9" ItemsSource="{Binding  animals}" >
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn Header="Имя животного" DisplayMemberBinding="{Binding  Name}" Width="100"></GridViewColumn>
+                        <GridViewColumn Header="Возраст" DisplayMemberBinding="{Binding Age}" Width="50"></GridViewColumn>
+                        <GridViewColumn Header="Вид" DisplayMemberBinding="{Binding  TipeOfAnimal}"></GridViewColumn>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Window>

@@ -1,10 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections.ObjectModel;
 
 namespace ZooSistemLibrary
 {
    public interface IView
     {
-        List<IAnimals> Animals { get; set; }
     }
 
 }
