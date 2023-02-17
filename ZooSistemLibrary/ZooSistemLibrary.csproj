@@ -47,10 +47,15 @@
     <Compile Include="Interfase\IAnimals.cs" />
     <Compile Include="Interfase\IView.cs" />
     <Compile Include="AnimalObgects\Mammal.cs" />
+    <Compile Include="Interfase\ISaveZoo.cs" />
     <Compile Include="Model.cs" />
     <Compile Include="AnimalObgects\NullAnimalObject.cs" />
     <Compile Include="Presenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SaveFileFactory.cs" />
+    <Compile Include="FileType\SaveToJson.cs" />
+    <Compile Include="FileType\SaveToTxt.cs" />
+    <Compile Include="FileType\SaveToXmls.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

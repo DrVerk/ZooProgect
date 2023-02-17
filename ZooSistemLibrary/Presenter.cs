@@ -40,7 +40,11 @@ namespace ZooSistemLibrary
         {
             model.AddNewAnimals();
         }
-        public void RemoveAnimals()
+        public void RemoveAnimal()
+        {
+
+        }
+        public void ChangeAnimal()
         {
 
         }
@@ -51,4 +55,5 @@ namespace ZooSistemLibrary
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
     }
+
 }
