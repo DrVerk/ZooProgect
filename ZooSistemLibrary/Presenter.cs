@@ -23,6 +23,11 @@ namespace ZooSistemLibrary
             //this.view = view;
             model = new Model();
         }
+        public Presenter(IView view) :this() 
+        {
+            this.view = view;
+
+        }
         public void SaveAnimals()
         {
 
