@@ -20,18 +20,23 @@ namespace ZooProgect
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window,IView
+    public partial class MainWindow : Window, IView
     {
         Presenter presenter;
         public MainWindow()
         {
-           
+
             InitializeComponent();
             presenter = new Presenter();
-            presenter.animals.Add(new NullAnimalObject());
-            add.Click += (e, s) => presenter.AddAnimals();
+            viuw.DataContext = presenter.animals;
+            add.Click += (e, s) =>
+            {
+                AddNewAnimal newAnimal = new AddNewAnimal(presenter);
+                newAnimal.ShowDialog();
+            };
+            remuve.Click += (e, s) => presenter.RemoveAnimal((IAnimals)viuw.SelectedItem);
         }
 
-        
+
     }
 }

@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Diagnostics;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
+using ZooSistemLibrary.Interfase;
 
 namespace ZooSistemLibrary
 {
@@ -14,16 +9,16 @@ namespace ZooSistemLibrary
     {
         IView view;
         Model model;
+        IAnimalsadd animalsadd;
 
-        
 
-        public ObservableCollection<IAnimals> animals { get => model.Animals; set { model.Animals = value; OnPropertyChanged("animals"); } }
+        public ObservableCollection<IAnimals> animals { get => model.Animals; set { model.Animals = value; OnPropertyChanged("Animals"); } }
         public Presenter()
         {
             //this.view = view;
             model = new Model();
         }
-        public Presenter(IView view) :this() 
+        public Presenter(IView view) : this()
         {
             this.view = view;
 
@@ -38,11 +33,15 @@ namespace ZooSistemLibrary
         }
         public void AddAnimals()
         {
-            model.AddNewAnimals();
+            model.AddNewAnimals(animalsadd.TipeOfAnimal, animalsadd.name, animalsadd.Age);
         }
-        public void RemoveAnimal()
+        public void addIAnimalsAdder(IAnimalsadd animalsadd)
         {
-
+            this.animalsadd = animalsadd;
+        }
+        public void RemoveAnimal(IAnimals animals)
+        {
+            model.RemuveAnimal(animals);
         }
         public void ChangeAnimal()
         {

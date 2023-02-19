@@ -1,0 +1,33 @@
+﻿<Window x:Class="ZooProgect.AddNewAnimal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ZooProgect"
+        mc:Ignorable="d"
+        Title="добавить нового " Height="250" Width="500">
+    <Grid Background="#FF7696B9">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="тип животного" TextAlignment="Center" Margin="0,18,0,0" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"  />
+        <TextBlock Text="название" TextAlignment="Center" Margin="0,18,0,0" Grid.Row="2" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"  />
+        <TextBlock Text="возраст" TextAlignment="Center" Margin="0,18,0,0" Grid.Row="1" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"  />
+
+        <TextBox x:Name="Mame" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="2" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="160" Height="20"  />
+        <ComboBox x:Name="age" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="1"  Text="" VerticalAlignment="Center" Width="80" Height="20"/>
+        <ComboBox x:Name="typeofenemy" HorizontalAlignment="Center" Margin="0,10,0,0" Grid.Column="1" VerticalAlignment="Center" Width="120"/>
+        
+        <Button Grid.Row="4" x:Name="cancel" Content="Отмена" Margin="90,10"/>
+        <Button Grid.Row="4" x:Name="load" Grid.Column="2" Content="Создать" Margin="90,10"/>
+        
+    </Grid>
+</Window>

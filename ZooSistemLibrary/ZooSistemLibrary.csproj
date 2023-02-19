@@ -45,6 +45,7 @@
     <Compile Include="AnimalsFactory.cs" />
     <Compile Include="AnimalObgects\Birds.cs" />
     <Compile Include="Interfase\IAnimals.cs" />
+    <Compile Include="Interfase\IAnimalsadd.cs" />
     <Compile Include="Interfase\IView.cs" />
     <Compile Include="AnimalObgects\Mammal.cs" />
     <Compile Include="Interfase\ISaveZoo.cs" />

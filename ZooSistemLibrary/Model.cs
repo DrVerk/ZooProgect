@@ -15,6 +15,17 @@ namespace ZooSistemLibrary
         {
             Animals.Add(AnimalsFactory.AnimalsCreate("", "", ""));
         }
+        public void AddNewAnimals(string animtipe,
+            string name,
+            string age)
+        {
+            Animals.Add(AnimalsFactory.AnimalsCreate(animtipe, name, age));
+        }
+
+        public void RemuveAnimal(IAnimals animals)
+        {
+            Animals.Remove(animals);
+        }
 
     }
 
