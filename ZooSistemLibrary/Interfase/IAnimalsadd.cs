@@ -1,4 +1,6 @@
 ﻿
+using System.Collections;
+
 namespace ZooSistemLibrary.Interfase
 {
     public interface IAnimalsadd
@@ -6,5 +8,7 @@ namespace ZooSistemLibrary.Interfase
         string name { get; }
         string Age { get; }
         string TipeOfAnimal { get; }
+        IEnumerable typeofenemyadd { set; }
+        IEnumerable animalsAges { set; }    
     }
 }

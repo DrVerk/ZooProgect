@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,11 +25,7 @@ namespace ZooProgect
 
         public AddNewAnimal()
         {
-            string[] objectsAnim = { "birds", "amphibians", "mammal" };
             InitializeComponent();
-            typeofenemy.ItemsSource = objectsAnim;
-            for (int i = 0; i < 30; i++)
-                age.Items.Add(i);
             cancel.Click += delegate { DialogResult = false; };
         }
         public AddNewAnimal(Presenter presenter) : this()
@@ -37,9 +34,9 @@ namespace ZooProgect
             load.Click += delegate { presenter.AddAnimals(); };
         }
         public string Age => (age.SelectedItem ?? 0).ToString();
-
         public string TipeOfAnimal => (string)typeofenemy.SelectedItem ?? "";
-
         public string name { get => Mame.Text; }
+        public IEnumerable typeofenemyadd { set => typeofenemy.ItemsSource = value; }
+        public IEnumerable animalsAges { set => age.ItemsSource = value; }
     }
 }

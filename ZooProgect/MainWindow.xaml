@@ -28,12 +28,14 @@
             </Grid.RowDefinitions>
             <Button x:Name="add" Content="Добавить" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch"/>
             <Button x:Name="remuve" Content="Удалить" HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Stretch"/>
+            <Button x:Name="save" Content="Сохранить данные " Grid.Row="4"  />
+            <Button x:Name="load" Content="Загрузить данные" Grid.Row="5"/>
         </Grid>
         <ListView Background="#FF7696B9" x:Name="viuw" ItemsSource="{Binding}" Foreground="Black" >
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
-                        <GridViewColumn Header="Имя животного" DisplayMemberBinding="{Binding  Name}" Width="100"> </GridViewColumn>
+                        <GridViewColumn Header="Имя животного" DisplayMemberBinding="{Binding  Name}" Width="100"></GridViewColumn>
                         <GridViewColumn Header="Возраст" DisplayMemberBinding="{Binding Age}" Width="50"></GridViewColumn>
                         <GridViewColumn Header="Вид" DisplayMemberBinding="{Binding  TipeOfAnimal}"></GridViewColumn>
                     </GridView.Columns>

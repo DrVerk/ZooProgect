@@ -31,22 +31,35 @@ namespace ZooSistemLibrary
         {
 
         }
-        public void AddAnimals()
-        {
-            model.AddNewAnimals(animalsadd.TipeOfAnimal, animalsadd.name, animalsadd.Age);
-        }
-        public void addIAnimalsAdder(IAnimalsadd animalsadd)
-        {
-            this.animalsadd = animalsadd;
-        }
-        public void RemoveAnimal(IAnimals animals)
-        {
-            model.RemuveAnimal(animals);
-        }
         public void ChangeAnimal()
         {
 
         }
+        /// <summary>
+        /// добовляет новое животное
+        /// </summary>
+        public void AddAnimals() =>
+            model.AddNewAnimals(animalsadd.TipeOfAnimal, animalsadd.name, animalsadd.Age);
+        /// <summary>
+        /// удоляет выбраное животное
+        /// </summary>
+        public void RemoveAnimal(IAnimals animals) =>
+            model.RemuveAnimal(animals);
+        /// <summary>
+        /// привязка и обработка окна добавления животного
+        /// </summary>
+        public void addIAnimalsAdder(IAnimalsadd animalsadd)
+        {
+            string[] objectsAnim = { "birds", "amphibians", "mammal" };
+            string[] ageAnim = new string[30];
+            for (int i = 0; i < 30; i++)
+                ageAnim[i] = i.ToString();
+            this.animalsadd = animalsadd;
+            this.animalsadd.typeofenemyadd = objectsAnim;
+            this.animalsadd.animalsAges = ageAnim;
+        }
+
+      
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")
         {

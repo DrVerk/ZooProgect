@@ -35,6 +35,7 @@ namespace ZooProgect
                 newAnimal.ShowDialog();
             };
             remuve.Click += (e, s) => presenter.RemoveAnimal((IAnimals)viuw.SelectedItem);
+            save.Click += (e, s) => { filecontrolWindow filecontrolWindow = new filecontrolWindow(presenter);filecontrolWindow.ShowDialog(); };
         }
 
 
