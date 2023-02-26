@@ -16,7 +16,7 @@ namespace ZooSistemLibrary
         {
             Name = "Имя не определено";
             Age = "Возраст не определён";
-            TipeOfAnimal = "тип животного не определен";
+            TipeOfAnimal = "вид животного не определен";
             counter++;
         }
         string _name, _age, _tipeofanimal;

@@ -1,7 +1,7 @@
 ﻿
 using System.Collections;
 
-namespace ZooSistemLibrary.Interfase
+namespace ZooSistemLibrary
 {
     public interface IAnimalsadd
     {

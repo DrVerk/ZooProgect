@@ -15,7 +15,7 @@ namespace ZooSistemLibrary
         {
             Name = name;
             Age = age;
-            TipeOfAnimal = "млекопитающее";
+            TipeOfAnimal = "Млекопитающее";
             counter++;
         }
 

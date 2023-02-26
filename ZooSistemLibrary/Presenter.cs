@@ -1,17 +1,21 @@
 ﻿using System.Collections.ObjectModel;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using ZooSistemLibrary.Interfase;
+using System;
 
 namespace ZooSistemLibrary
 {
     public class Presenter : INotifyPropertyChanged
     {
+        #region система
         IView view;
         Model model;
         IAnimalsadd animalsadd;
-
-
+        IFileSystem systemfile;
+        SortedDictionary<string, string> file_types = new SortedDictionary<string, string>();
+        SortedDictionary<string, string> file_action = new SortedDictionary<string, string>();
+        SortedDictionary<string, string> animals_type = new SortedDictionary<string, string>();
         public ObservableCollection<IAnimals> animals { get => model.Animals; set { model.Animals = value; OnPropertyChanged("Animals"); } }
         public Presenter()
         {
@@ -23,6 +27,14 @@ namespace ZooSistemLibrary
             this.view = view;
 
         }
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged([CallerMemberName] string prop = "")
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(prop));
+        }
+        #endregion
+        #region функции взаимодействия
         public void SaveAnimals()
         {
 
@@ -38,34 +50,56 @@ namespace ZooSistemLibrary
         /// <summary>
         /// добовляет новое животное
         /// </summary>
-        public void AddAnimals() =>
-            model.AddNewAnimals(animalsadd.TipeOfAnimal, animalsadd.name, animalsadd.Age);
+        public void AddAnimals()
+        {
+            animals_type.TryGetValue(animalsadd.TipeOfAnimal, out string e);
+            model.AddNewAnimals(e, animalsadd.name, animalsadd.Age);
+        }
+
         /// <summary>
         /// удоляет выбраное животное
         /// </summary>
         public void RemoveAnimal(IAnimals animals) =>
             model.RemuveAnimal(animals);
+        #endregion
+        #region Работа с окнами
         /// <summary>
         /// привязка и обработка окна добавления животного
         /// </summary>
         public void addIAnimalsAdder(IAnimalsadd animalsadd)
         {
-            string[] objectsAnim = { "birds", "amphibians", "mammal" };
+            animals_type.Add("Птица", "birds");
+            animals_type.Add("Земноводное", "amphibians");
+            animals_type.Add("Млекопитающее", "mammal");
+
             string[] ageAnim = new string[30];
-            for (int i = 0; i < 30; i++)
+            for (int i = 0; i < ageAnim.Length; i++)
                 ageAnim[i] = i.ToString();
+
             this.animalsadd = animalsadd;
-            this.animalsadd.typeofenemyadd = objectsAnim;
+            this.animalsadd.typeofenemyadd = animals_type.Keys;
             this.animalsadd.animalsAges = ageAnim;
         }
-
-      
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string prop = "")
+        public void bindFileControl(IFileSystem fileSystem)
         {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(prop));
+            systemfile = fileSystem;
+
+
+            file_types.Add("текст", ".txt");
+            file_types.Add("джисон", ".json");
+            file_types.Add("таблица", ".xmls");
+
+            systemfile.FileTypeObject = file_types.Keys;
+
+            file_action.Add("Сохронить в фаил", "save");
+            file_action.Add("Дозагрузить", "doload");
+            file_action.Add("Загрузить в проект", "load");
+
+            systemfile.FileActionObject = file_action.Keys;
         }
+        #endregion
+
+
     }
 
 }

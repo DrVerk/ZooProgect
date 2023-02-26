@@ -26,10 +26,11 @@
                 <RowDefinition Height="1*"/>
 
             </Grid.RowDefinitions>
-            <Button x:Name="add" Content="Добавить" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch"/>
-            <Button x:Name="remuve" Content="Удалить" HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Stretch"/>
-            <Button x:Name="save" Content="Сохранить данные " Grid.Row="4"  />
-            <Button x:Name="load" Content="Загрузить данные" Grid.Row="5"/>
+            <TextBlock Text="Работа с животными" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" Margin="0,36,0,0"/>
+            <Button x:Name="add"  Content="Добавить" HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Stretch" Margin="5"/>
+            <Button x:Name="remuve" Content="Удалить" HorizontalAlignment="Stretch" Grid.Row="2" VerticalAlignment="Stretch" Margin="5"/>
+            <Button x:Name="save" Content="Работа с файлами " Grid.Row="4" Margin="5"  />
+
         </Grid>
         <ListView Background="#FF7696B9" x:Name="viuw" ItemsSource="{Binding}" Foreground="Black" >
             <ListView.View>

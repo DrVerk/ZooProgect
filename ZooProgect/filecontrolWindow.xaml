@@ -5,25 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ZooProgect"
         mc:Ignorable="d"
-        Title="filecontrolWindow" Height="220" Width="500">
+        Title="filecontrolWindow" Height="220" Width="550">
     <Grid  Background="#FF7696B9">
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="33*"/>
+            <RowDefinition Height="86*"/>
+            <RowDefinition Height="85*"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="2" >
+        <Grid Grid.Row="1" Margin="0,69,0,0" Grid.RowSpan="2" >
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="69*"/>
+                <ColumnDefinition Width="105*"/>
+                <ColumnDefinition Width="76*"/>
             </Grid.ColumnDefinitions>
-            <ComboBox HorizontalAlignment="Center" Margin="0,34,0,0" VerticalAlignment="Top" Width="134" />
-            <Button Grid.Column="1" Content="Сохранить" VerticalAlignment="Center" Margin="50,0,0,0" Height="48" HorizontalAlignment="Left" Width="160"/>
-            <TextBlock Text="Тип файла" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" FontSize="20"/>
+            <TextBlock Text="Тип файла" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" FontSize="20" Margin="0,16,0,0" Height="27" Width="96"/>
+            <ComboBox x:Name="type" HorizontalAlignment="Center" Margin="0,57,0,0" VerticalAlignment="Top" Width="134" Height="22" />
+            <TextBlock Text="Действие над файлом" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" FontSize="20" Margin="0,16,0,0" Height="27" Width="202"/>
+            <ComboBox x:Name="action" HorizontalAlignment="Center" Grid.Column="1" Margin="0,57,0,0" VerticalAlignment="Top" Width="134" Height="22" />
+
+            <Button x:Name="but" Grid.Column="2" Content="Сохранить" VerticalAlignment="Top" Margin="0,44,0,0" Height="48" HorizontalAlignment="Center" Width="146"/>
 
         </Grid>
-        <TextBlock Text="Наименование файла" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" FontSize="22" Margin="0,39,0,0"/>
-        <TextBox HorizontalAlignment="Center" Grid.Row="1" Text="" VerticalAlignment="Center" Width="380" TextAlignment="Center" Height="32" TextWrapping="Wrap" FontSize="20"/>
+        <TextBlock Text="Наименование файла" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" FontSize="22" Margin="0,26,0,0" Height="29" Width="220" Grid.RowSpan="2"/>
+        <TextBox x:Name="name" HorizontalAlignment="Center" Grid.Row="1" Text="" VerticalAlignment="Center" Width="380" TextAlignment="Center" Height="32" TextWrapping="Wrap" FontSize="20"/>
 
     </Grid>
 </Window>
