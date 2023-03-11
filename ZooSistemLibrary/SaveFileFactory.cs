@@ -1,39 +1,42 @@
 ﻿using System.Collections.ObjectModel;
-using System.Security.AccessControl;
 
 namespace ZooSistemLibrary
 {
     static class SaveFileFactory
     {
-        public static void SaveFile(string savetype,string puch, ObservableCollection<IAnimals> animals)
+        public static void SaveFile(string savetype, string puch, ObservableCollection<IAnimals> animals)
         {
+            ISaveZoo system;
             switch (savetype)
             {
                 case "json":
-
+                    system = new SaveToJson();
                     break;
                 case "xmls":
-
+                    system = new SaveToXmls();
                     break;
                 default:
-
+                    system = new SaveToTxt();
                     break;
             }
+            system.SaveFile(puch, animals);
         }
-        public static void LoadFile(string loadtype,string puch,ref ObservableCollection<IAnimals> animals)
+        public static ObservableCollection<IAnimals> LoadFile(string loadtype, string puch)
         {
+            ISaveZoo system;
             switch (loadtype)
             {
                 case "json":
-
+                    system = new SaveToJson();
                     break;
                 case "xmls":
-
+                    system = new SaveToXmls();
                     break;
                 default:
-
+                    system = new SaveToTxt();
                     break;
             }
+            return system.LoadFile(puch);
         }
     }
 }

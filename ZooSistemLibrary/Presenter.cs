@@ -1,8 +1,6 @@
 ﻿using System.Collections.ObjectModel;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System;
 
 namespace ZooSistemLibrary
 {
@@ -12,10 +10,8 @@ namespace ZooSistemLibrary
         IView view;
         Model model;
         IAnimalsadd animalsadd;
-        IFileSystem systemfile;
-        SortedDictionary<string, string> file_types = new SortedDictionary<string, string>();
-        SortedDictionary<string, string> file_action = new SortedDictionary<string, string>();
-        SortedDictionary<string, string> animals_type = new SortedDictionary<string, string>();
+        IFileSystem fileSystem;
+
         public ObservableCollection<IAnimals> animals { get => model.Animals; set { model.Animals = value; OnPropertyChanged("Animals"); } }
         public Presenter()
         {
@@ -35,25 +31,21 @@ namespace ZooSistemLibrary
         }
         #endregion
         #region функции взаимодействия
-        public void SaveAnimals()
+        /// <summary>
+        /// отрабатывает взаимодействие с кнопкой в окне файлов
+        /// </summary>
+        public void fileButtonClick()
         {
-
-        }
-        public void LoadAnimals()
-        {
-
-        }
-        public void ChangeAnimal()
-        {
-
+            model.file_types.TryGetValue(fileSystem.FileType, out string e);
+            model.SaveAnimals(e, fileSystem.FileName, animals);
         }
         /// <summary>
         /// добовляет новое животное
         /// </summary>
         public void AddAnimals()
         {
-            animals_type.TryGetValue(animalsadd.TipeOfAnimal, out string e);
-            model.AddNewAnimals(e, animalsadd.name, animalsadd.Age);
+
+            model.AddNewAnimals(animalsadd, animalsadd.name, animalsadd.Age);
         }
 
         /// <summary>
@@ -68,35 +60,19 @@ namespace ZooSistemLibrary
         /// </summary>
         public void addIAnimalsAdder(IAnimalsadd animalsadd)
         {
-            animals_type.Add("Птица", "birds");
-            animals_type.Add("Земноводное", "amphibians");
-            animals_type.Add("Млекопитающее", "mammal");
-
-            string[] ageAnim = new string[30];
-            for (int i = 0; i < ageAnim.Length; i++)
-                ageAnim[i] = i.ToString();
-
             this.animalsadd = animalsadd;
-            this.animalsadd.typeofenemyadd = animals_type.Keys;
-            this.animalsadd.animalsAges = ageAnim;
+            model.addAnimalsGUI(this.animalsadd);
         }
-        public void bindFileControl(IFileSystem fileSystem)
+        /// <summary>
+        /// привязка и обработка окна работы с файлами
+        /// </summary>
+        /// <param name="fileSystem"></param>
+        public void bindFileControl(IFileSystem file)
         {
-            systemfile = fileSystem;
-
-
-            file_types.Add("текст", ".txt");
-            file_types.Add("джисон", ".json");
-            file_types.Add("таблица", ".xmls");
-
-            systemfile.FileTypeObject = file_types.Keys;
-
-            file_action.Add("Сохронить в фаил", "save");
-            file_action.Add("Дозагрузить", "doload");
-            file_action.Add("Загрузить в проект", "load");
-
-            systemfile.FileActionObject = file_action.Keys;
+            fileSystem = file;
+            model.fileGUI(fileSystem);
         }
+
         #endregion
 
 

@@ -16,9 +16,10 @@ namespace ZooProgect
         public filecontrolWindow(Presenter presenter):this() 
         {
             presenter.bindFileControl(this);
+            but.Click += delegate { presenter.fileButtonClick(); };
         }
 
-        public string FileName { get => name.Text; set => name.Text=value; }
+        public string FileName { get => name.Text??"zoo"; set => name.Text=value; }
 
         public string FileType => (type.SelectedItem??"").ToString();
 

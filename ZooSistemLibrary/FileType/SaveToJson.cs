@@ -1,17 +1,29 @@
-﻿using System.Collections.ObjectModel;
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections.ObjectModel;
+using System.IO;
 
 namespace ZooSistemLibrary
 {
     class SaveToJson : ISaveZoo
     {
-        public void LoadFile(string path, ref ObservableCollection<IAnimals> animals)
+        public ObservableCollection<IAnimals> LoadFile(string path)
         {
-            throw new System.NotImplementedException();
+            IsInputFile(@"..\files\"+path + ".json");
+            return JsonConvert.DeserializeObject<ObservableCollection<IAnimals>>(File.ReadAllText(path + ".json"));
         }
 
         public void SaveFile(string path, ObservableCollection<IAnimals> animals)
         {
-            throw new System.NotImplementedException();
+            string str = JsonConvert.SerializeObject(animals);
+            IsInputFile(@"..\files\"+path??"zoo" + ".json");
+            File.WriteAllText(path + ".json", str);
+
+        }
+        private void IsInputFile(string path)
+        {
+            if (!File.Exists(path))
+                using (StreamWriter sw = new StreamWriter(new FileStream(path, FileMode.Create, FileAccess.Write))) { };
         }
     }
 }

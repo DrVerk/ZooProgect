@@ -23,7 +23,7 @@
             <TextBlock Text="Действие над файлом" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" FontSize="20" Margin="0,16,0,0" Height="27" Width="202"/>
             <ComboBox x:Name="action" HorizontalAlignment="Center" Grid.Column="1" Margin="0,57,0,0" VerticalAlignment="Top" Width="134" Height="22" />
 
-            <Button x:Name="but" Grid.Column="2" Content="Сохранить" VerticalAlignment="Top" Margin="0,44,0,0" Height="48" HorizontalAlignment="Center" Width="146"/>
+            <Button x:Name="but" Grid.Column="2" Content="Совершить действие" VerticalAlignment="Top" Margin="0,44,0,0" Height="48" HorizontalAlignment="Center" Width="146"/>
 
         </Grid>
         <TextBlock Text="Наименование файла" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" FontSize="22" Margin="0,26,0,0" Height="29" Width="220" Grid.RowSpan="2"/>
