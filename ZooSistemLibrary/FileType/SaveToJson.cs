@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System;
 using System.Collections.ObjectModel;
 using System.IO;
 
@@ -9,15 +8,15 @@ namespace ZooSistemLibrary
     {
         public ObservableCollection<IAnimals> LoadFile(string path)
         {
-            IsInputFile(@"..\files\"+path + ".json");
-            return JsonConvert.DeserializeObject<ObservableCollection<IAnimals>>(File.ReadAllText(path + ".json"));
+            IsInputFile(@"..\" + path + ".json");
+            return JsonConvert.DeserializeObject<ObservableCollection<IAnimals>>(File.ReadAllText(@"..\" + path + ".json"));
         }
 
         public void SaveFile(string path, ObservableCollection<IAnimals> animals)
         {
             string str = JsonConvert.SerializeObject(animals);
-            IsInputFile(@"..\files\"+path??"zoo" + ".json");
-            File.WriteAllText(path + ".json", str);
+            IsInputFile(@"..\" + path ?? "zoo" + ".json");
+            File.WriteAllText(@"..\" + path + ".json", str);
 
         }
         private void IsInputFile(string path)

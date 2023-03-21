@@ -5,15 +5,15 @@ namespace ZooSistemLibrary
 {
     class SaveToXmls : ISaveZoo
     {
-        public ObservableCollection<IAnimals> LoadFile(string path)
+        public ObservableCollection<NullAnimalObject> LoadFile(string path)
         {
-            IsInputFile(path + ".xmls");
+            IsInputFile(@"..\" + path + ".xmls");
             throw new System.NotImplementedException();
         }
 
         public void SaveFile(string path, ObservableCollection<IAnimals> animals)
         {
-            IsInputFile(path + ".xmls");
+            IsInputFile(@"..\" + path + ".xmls");
         }
         private void IsInputFile(string path)
         {

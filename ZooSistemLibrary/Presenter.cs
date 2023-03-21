@@ -37,7 +37,22 @@ namespace ZooSistemLibrary
         public void fileButtonClick()
         {
             model.file_types.TryGetValue(fileSystem.FileType, out string e);
-            model.SaveAnimals(e, fileSystem.FileName, animals);
+            model.file_action.TryGetValue(fileSystem.FileAction, out string s);
+            switch (s)
+            {
+                case "save":
+                    model.SaveAnimals(e, fileSystem.FileName, animals);
+                    break;
+                case "doload":
+                    var mod = model.LoadAnimals(e, fileSystem.FileName);
+                    foreach (var item in mod)
+                        animals.Add(item);
+                    break;
+                case "load":
+                    animals = model.LoadAnimals(e, fileSystem.FileName);
+                    break;
+            }
+
         }
         /// <summary>
         /// добовляет новое животное
