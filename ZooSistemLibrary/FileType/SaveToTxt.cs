@@ -1,17 +1,19 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 
 namespace ZooSistemLibrary
 {
     class SaveToTxt : ISaveZoo
     {
-        public ObservableCollection<NullAnimalObject> LoadFile(string path)
+        public IEnumerable<IAnimals> LoadFile(string path)
         {
             IsInputFile(@"..\" + path +".txt");
             throw new System.NotImplementedException();
         }
 
-        public void SaveFile(string path, ObservableCollection<IAnimals> animals)
+        public void SaveFile(string path, IEnumerable<IAnimals> animals)
         {
             IsInputFile(@"..\" + path + ".txt");
         }

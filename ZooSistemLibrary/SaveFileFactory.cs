@@ -36,7 +36,7 @@ namespace ZooSistemLibrary
                     system = new SaveToTxt();
                     break;
             }
-            return system.LoadFile(puch);
+            return (ObservableCollection<IAnimals>)system.LoadFile(puch);
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿
-namespace ZooSistemLibrary
+﻿namespace ZooSistemLibrary
 {
     public interface IAnimals
     {

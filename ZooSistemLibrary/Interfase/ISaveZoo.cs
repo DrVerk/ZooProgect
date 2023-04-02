@@ -1,10 +1,11 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace ZooSistemLibrary
 {
     internal interface ISaveZoo
     {
-        ObservableCollection<IAnimals>  LoadFile(string path);
-        void SaveFile(string path, ObservableCollection<IAnimals> animals);
+        IEnumerable<IAnimals>  LoadFile(string path);
+        void SaveFile(string path, IEnumerable<IAnimals> animals);
     }
 }

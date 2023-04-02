@@ -1,5 +1,4 @@
-﻿
-using System.Collections;
+﻿using System.Collections;
 
 namespace ZooSistemLibrary
 {
@@ -7,8 +6,9 @@ namespace ZooSistemLibrary
     {
         string name { get; }
         string Age { get; }
-        string TipeOfAnimal { get; }
+        IEnumerable animalsAges { set; } 
+        string TipeOfAnimal { get; }  
         IEnumerable typeofenemyadd { set; }
-        IEnumerable animalsAges { set; }    
+        
     }
 }

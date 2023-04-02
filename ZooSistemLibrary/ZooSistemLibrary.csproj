@@ -50,6 +50,7 @@
     <Compile Include="Interfase\IAnimals.cs" />
     <Compile Include="Interfase\IAnimalsadd.cs" />
     <Compile Include="Interfase\IFileSystem.cs" />
+    <Compile Include="Interfase\IChangeZoo.cs" />
     <Compile Include="Interfase\IView.cs" />
     <Compile Include="AnimalObgects\Mammal.cs" />
     <Compile Include="Interfase\ISaveZoo.cs" />
